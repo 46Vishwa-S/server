@@ -8,3 +8,11 @@ compatibility_date = "2024-03-20"
 type = "Text"
 globs = ["**/*.html"]
 fallbacks = []
+
+[[durable_objects.bindings]]
+name = "TINY_RELAY"
+class_name = "TinyRelay"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["TinyRelay"]
