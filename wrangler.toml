@@ -1,0 +1,5 @@
+name = "server"
+main = "index.js"
+compatibility_date = "2024-03-20"
+
+# You can add more configurations here if needed.
