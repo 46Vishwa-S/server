@@ -8,45 +8,7 @@
 const SCORE_THRESHOLD = 6;
 const AUTH_DURATION_MS = 10 * 60 * 1000;
 
-const htmlPage = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TINY Robot Interface</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; display: flex; flex-direction: column; align-items: center; padding: 2rem; }
-        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 500px; width: 100%; text-align: center; }
-        h1 { color: #3b82f6; }
-        button { background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 20px; }
-        button:hover { background: #2563eb; }
-        #status { margin-top: 15px; font-weight: bold; color: #6b7280; }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <h1>🤖 TINY Robot Relay</h1>
-        <p>This is the backend WebSocket Relay Server.</p>
-        <div id="status">Connecting to WebSocket...</div>
-        <button id="testBtn">Test Connection</button>
-    </div>
-    <script>
-        const ws = new WebSocket((window.location.protocol === 'https:' ? 'wss://' : 'ws://') + window.location.host + '/ws?role=browser');
-        const statusEl = document.getElementById('status');
-        ws.onopen = () => { statusEl.innerText = "✅ Connected to Cloudflare Relay"; statusEl.style.color = "#10b981"; };
-        ws.onclose = () => { statusEl.innerText = "❌ Disconnected"; statusEl.style.color = "#ef4444"; };
-        document.getElementById('testBtn').onclick = () => {
-            if(ws.readyState === WebSocket.OPEN) {
-                alert("WebSocket is active!");
-            } else {
-                alert("WebSocket is not connected.");
-            }
-        }
-    </script>
-</body>
-</html>
-`;
+import htmlPage from "./index.html";
 
 // Authoritative Question Bank
 const QUESTION_BANK = [
